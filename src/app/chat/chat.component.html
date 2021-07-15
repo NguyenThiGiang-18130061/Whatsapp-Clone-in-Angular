@@ -1,0 +1,34 @@
+<div id="container">
+    <div id="header">
+        <div class="avartarSection">
+            <div class="picture">
+                <img src="../../assets/avatar.jpg">
+            </div>
+            <div class="nameSection">Giang</div>
+        </div>
+        <div class="actionButtons">
+            <img src="../../assets/attachment.svg">&nbsp;
+            <img src="../../assets/moreVert.svg">
+        </div>
+    </div>
+    <div id="body">
+        <!-- Co class me la tin nhan mau xen ke duoc dinh dang ben scss class message va &:me -->
+        <div class="message" [ngClass]="{me:message.me}" *ngFor="let message of conversation.message">
+            <div class="messageContent">{{message.body}}
+                <div class="time">{{message.time}}</div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="smileyIcon">
+            <img (click)="emojiPickerVisible=!emojiPickerVisible" src="../../assets/smileIcon.svg">
+            <emoji-content (emojiClick)="emojiClicked($event)" *ngIf="emojiPickerVisible" style="position: absolute; bottom: 50px;" title="Pick your emoji.."></emoji-content>
+        </div>
+        <div id="textarea">
+            <textarea [(ngModel)]="message" (keyup.enter)="submitMessage($event)"></textarea>
+        </div>
+        <div id="micIcon">
+            <img src="../../assets/voiceIcon.svg">
+        </div>
+    </div>
+</div>
