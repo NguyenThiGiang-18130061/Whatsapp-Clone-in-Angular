@@ -22,7 +22,7 @@
     <div id="footer">
         <div id="smileyIcon">
             <img (click)="emojiPickerVisible=!emojiPickerVisible" src="../../assets/smileIcon.svg">
-            <emoji-content (emojiClick)="emojiClicked($event)" *ngIf="emojiPickerVisible" style="position: absolute; bottom: 50px;" title="Pick your emoji.."></emoji-content>
+            <emoji-mart (emojiClick)="emojiClicked($event)" *ngIf="emojiPickerVisible" style="position: absolute; bottom: 50px;" [darkMode]="false" title="Pick your emoji..." emoji="point_up"></emoji-mart>
         </div>
         <div id="textarea">
             <textarea [(ngModel)]="message" (keyup.enter)="submitMessage($event)"></textarea>
